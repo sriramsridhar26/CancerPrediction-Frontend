@@ -1,0 +1,41 @@
+<p>Hello world</p>
+<!-- <div class="text-center" *ngIf="upload"> -->
+    
+  
+    <!-- <button (cdivck)="onUploadVid()" 
+        class="btn btn-success">
+        Upload
+    </button> -->
+<!-- </div> -->
+<div class="center">
+    <div>
+        <input class="form-control" type="file" 
+                (change)="onChange($event)">
+    </div> 
+    <div class="container">
+        <form id="form" [formGroup]="configForm" >
+            <div>
+                <div>
+                    <label for="floatingstart">Start time: </label> 
+                    <input id="floatingstart" class="form-control" formControlName="starttime" type="text" placeholder="in seconds"  />
+                    
+                </div>
+                <div>
+                    <label for="floatingend">End time: </label>
+                    <input id="floatingend" class="form-control" formControlName="endtime" type="text" placeholder="in seconds" />
+                    
+                </div>
+                <br>
+            </div>
+            <p align="center">
+                <button class="btn btn-primary " type="button" (click)="onUploadVid()">Submit</button>
+            </p>
+            
+          </form>
+    </div>
+    <!--Flag variable is used here-->
+    <div class="container" *ngIf="loading">
+        <h3>Loading ...</h3>
+    </div>
+</div>
+
