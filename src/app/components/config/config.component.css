@@ -37,3 +37,13 @@
   .headPad{
     padding-left: 10%;
   }
+
+  *:disabled {
+    background-color: rgb(203, 203, 203);
+    color: rgb(0, 0, 0);
+  }
+
+  .warning{
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }

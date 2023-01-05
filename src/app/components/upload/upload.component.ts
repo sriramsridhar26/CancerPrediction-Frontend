@@ -21,6 +21,7 @@ export class UploadComponent implements OnInit {
   response:serviceresponse
   // starttime:any;
   // endtime:any;
+  submit: boolean = false;
   new:uploadvid;
   st:any;
   et:any;
@@ -40,16 +41,20 @@ export class UploadComponent implements OnInit {
     this.file= event.target.files[0];
 }
 
+previewVideo(): void{
+  this.submit = true;
+}
+
 // OnClick of button Upload
 onUploadVid() {
-  console.log("touched onuploadvid");
+  // console.log("touched onuploadvid");
     this.loading = !this.loading;
     //console.log(this.file);
     this.st = this.configForm.get("starttime")?.value;
-    console.log(this.st);
+    // console.log(this.st);
     this.et = this.configForm.get("endtime")?.value;
     let data={starttime:this.st, endtime:this.et};
-  console.log(this.file);
+  // console.log(this.file);
      this.apicontrol.upload( this.file ).subscribe((res=>{this.response=res
        console.log(this.response);
        this.loading=false;
@@ -61,5 +66,7 @@ onUploadVid() {
       console.log(this.response);
       this.router.navigate(['components/config']);
      }))
+
+    
 }
 }

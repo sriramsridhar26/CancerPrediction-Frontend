@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class ConfigComponent implements OnInit {
 
   preview: boolean = false;
-
+  disabled:boolean = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -22,4 +22,9 @@ export class ConfigComponent implements OnInit {
     this.preview = true;
   }
 
+  onChange(event):void{
+    this.disabled = event.srcElement.value < 1 ? true : false;
+    console.log(event.srcElement.value );
+    
+  }
 }
