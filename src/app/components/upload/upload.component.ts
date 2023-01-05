@@ -49,8 +49,8 @@ onUploadVid() {
     console.log(this.st);
     this.et = this.configForm.get("endtime")?.value;
     let data={starttime:this.st, endtime:this.et};
-
-     this.apicontrol.upload(data).subscribe((res=>{this.response=res
+  console.log(this.file);
+     this.apicontrol.upload( this.file ).subscribe((res=>{this.response=res
        console.log(this.response);
        this.loading=false;
        //this.upload=false;

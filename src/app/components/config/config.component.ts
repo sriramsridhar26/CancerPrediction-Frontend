@@ -8,12 +8,18 @@ import { Router } from '@angular/router';
 })
 export class ConfigComponent implements OnInit {
 
+  preview: boolean = false;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
   proceed(): void{
     this.router.navigate(['components/waitforresult']);
+  }
+
+  previewVideo(): void{
+    this.preview = true;
   }
 
 }

@@ -1,6 +1,39 @@
 .center {
     margin: auto;
-    width: 60%;
-    padding: 10px;
+    width: 100%;
+    
     position:relative;
+  }
+
+.center>form>div>input{
+  width: 60%;
+}
+/* 
+  #ConfigButtons{
+    width: 100%;
+    display: inline-flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+    align-content:flex-start ;
+  } */
+
+  #ConfigButtons>button{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+
+  .videoDiv{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around  ;
+    align-items: left;
+  }
+
+  .defaultPad{
+    padding-left: 17%;
+  }
+
+  .headPad{
+    padding-left: 10%;
   }

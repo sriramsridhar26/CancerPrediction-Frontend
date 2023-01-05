@@ -9,6 +9,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { WaitforresultComponent } from './components/waitforresult/waitforresult.component';
 import { FinalComponent } from './components/final/final.component';
+import { InputPreviewComponent } from './input-preview/input-preview.component';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 
 @NgModule({
   declarations: [
@@ -16,13 +21,18 @@ import { FinalComponent } from './components/final/final.component';
     UploadComponent,
     ConfigComponent,
     WaitforresultComponent,
-    FinalComponent
+    FinalComponent,
+    InputPreviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
