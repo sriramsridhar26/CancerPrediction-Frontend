@@ -7,6 +7,14 @@
         Upload
     </button> -->
 <!-- </div> -->
+<div [ngClass]="submit? 'videoDiv': 'defaultPad' ">
+    <div *ngIf="submit">
+        <h4>Video Preview</h4>
+        <app-input-preview></app-input-preview>
+    </div>
+</div>
+
+
 <div class="center">
     <div>
         <input class="form-control" type="file" 
@@ -27,9 +35,15 @@
                 </div>
                 <br>
             </div>
-            <p align="center">
+            <!-- <p>
                 <button class="btn btn-primary " type="button" (click)="onUploadVid()">Submit</button>
-            </p>
+            </p> -->
+            <div id="ConfigButtons">
+                <button class="btn btn-secondary" type="button" (click)="previewVideo()">
+                Preview 
+                </button>
+                <button class="btn btn-primary " type="button" (click)="onUploadVid()">Submit</button>
+             </div>
             
           </form>
     </div>

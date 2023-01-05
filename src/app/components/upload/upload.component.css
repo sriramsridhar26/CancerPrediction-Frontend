@@ -11,3 +11,23 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+  
+  #ConfigButtons>button{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .videoDiv{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around  ;
+    align-items: left;
+  }
+
+  .defaultPad{
+    padding-left: 17%;
+  }
+
+  .headPad{
+    padding-left: 10%;
+  }
