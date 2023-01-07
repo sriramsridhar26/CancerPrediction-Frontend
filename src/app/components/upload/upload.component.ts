@@ -19,8 +19,7 @@ export class UploadComponent implements OnInit {
   //time: boolean= false;
   file: File = null; // Variable to store file
   response:serviceresponse
-  // starttime:any;
-  // endtime:any;
+
   submit: boolean = false;
   new:uploadvid;
   st:any;
