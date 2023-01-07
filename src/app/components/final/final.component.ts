@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinalComponent implements OnInit {
 
+  processlink:string=sessionStorage.getItem("processed");
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

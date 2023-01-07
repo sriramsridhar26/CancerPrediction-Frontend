@@ -8,12 +8,13 @@ import { ApicontrolService } from '../services/apicontrol.service';
   styleUrls: ['./input-preview.component.css']
 })
 export class InputPreviewComponent implements OnInit {
+  vidUrl: any;
+  response:any;
 
   constructor(private apicontrol: ApicontrolService) { }
-vidUrl: any;
-response:any;
+
   ngOnInit(): void {
-    this.vidUrl = this.apicontrol.downloadVid();
+    this.vidUrl = this.apicontrol.stream(sessionStorage.getItem('raw'));
   }
 
 onLoad(){
