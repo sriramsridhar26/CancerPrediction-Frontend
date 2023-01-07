@@ -12,22 +12,20 @@ import { ApicontrolService } from 'src/app/services/apicontrol.service';
 })
 export class UploadComponent implements OnInit {
 
-   // Variable to store shortLink from api response
-  //shortLink: string = "";
-  loading: boolean = false; // Flag variable
-  //upload: boolean =true;
-  //time: boolean= false;
-  file: File = null; // Variable to store file
-  response:serviceresponse
+  loading: boolean = false; 
+  starttime:Number;
+  endtime:Number;
 
+  file: File = null; 
+  response:serviceresponse
   submit: boolean = false;
   new:uploadvid;
-  st:any;
-  et:any;
+
   configForm: FormGroup = this.formBuilder.group({
     starttime: new FormControl(null, [Validators.required]),
     endtime: new FormControl(null, [Validators.required])
   });
+
   constructor(private apicontrol: ApicontrolService,
               private formBuilder: FormBuilder,
               private router: Router) { }
@@ -35,36 +33,31 @@ export class UploadComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  // On file Select
   onChange(event) {
     this.file= event.target.files[0];
-}
+  }
 
-previewVideo(): void{
+  previewVideo(): void{
   this.submit = true;
-}
+  }
 
-// OnClick of button Upload
-onUploadVid() {
-  // console.log("touched onuploadvid");
-    this.loading = !this.loading;
-    //console.log(this.file);
-    this.st = this.configForm.get("starttime")?.value;
-    // console.log(this.st);
-    this.et = this.configForm.get("endtime")?.value;
-    let data={starttime:this.st, endtime:this.et};
-  // console.log(this.file);
-     this.apicontrol.upload( this.file ).subscribe((res=>{this.response=res
-       console.log(this.response);
-       this.loading=false;
-       //this.upload=false;
-       //this.time= true;
-     }));
-     this.apicontrol.strip(data).subscribe((res=>{
-      this.response=res
+  onUploadVid() {
+
+    const formData =  new FormData();
+    formData.append('data', this.file);
+    this.starttime=this.configForm.get("starttime")?.value;
+    this.endtime=this.configForm.get("endtime")?.value;
+    console.log(formData);
+
+    this.apicontrol.upload(formData, this.starttime,this.endtime).subscribe((res=>{this.response=res
       console.log(this.response);
-      this.router.navigate(['components/config']);
-     }))
+      this.loading=false;
+      if(this.response.success){
+        sessionStorage.setItem('raw',this.response.data);
+        console.log(sessionStorage.getItem('raw'));
+        this.router.navigate(['components/config']);
+      }
+    }));
 
     
 }
