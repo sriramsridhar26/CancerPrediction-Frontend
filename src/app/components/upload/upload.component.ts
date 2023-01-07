@@ -19,7 +19,8 @@ export class UploadComponent implements OnInit {
   file: File = null; 
   response:serviceresponse
   submit: boolean = false;
-  new:uploadvid;
+  preview:boolean = false;
+  formData:FormData;
 
   configForm: FormGroup = this.formBuilder.group({
     starttime: new FormControl(null, [Validators.required]),
@@ -31,6 +32,7 @@ export class UploadComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    
   }
   
   onChange(event) {
@@ -38,24 +40,40 @@ export class UploadComponent implements OnInit {
   }
 
   previewVideo(): void{
-  this.submit = true;
+    this.submit = false;
+    this.onUploadVid();
+   
+    // console.log('Preview Video')
+    // console.log(sessionStorage.getItem('raw'));
+    // this.apicontrol.stream(sessionStorage.getItem('raw'));
+    
+    this.preview = true;
   }
 
   onUploadVid() {
-
-    const formData =  new FormData();
-    formData.append('data', this.file);
+    this.formData =  new FormData();
     this.starttime=this.configForm.get("starttime")?.value;
     this.endtime=this.configForm.get("endtime")?.value;
-    console.log(formData);
+    this.formData.append('data', this.file);
+    
+    // console.log('onUploadVid');
 
-    this.apicontrol.upload(formData, this.starttime,this.endtime).subscribe((res=>{this.response=res
-      console.log(this.response);
+    this.apicontrol.upload(this.formData, this.starttime,this.endtime).subscribe((res=>{this.response=res
+      // console.log(this.response);
       this.loading=false;
       if(this.response.success){
         sessionStorage.setItem('raw',this.response.data);
-        console.log(sessionStorage.getItem('raw'));
-        this.router.navigate(['components/config']);
+        if(!this.preview){
+          this.router.navigate(['components/config']);
+        }
+        else{
+          this.submit = true;
+          // console.log('Event Emit')
+          
+          this.apicontrol.getVidUrl.emit(sessionStorage.getItem('raw'));
+          
+        }
+        this.preview = false;
       }
     }));
 

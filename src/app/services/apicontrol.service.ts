@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { serviceresponse } from '../model/serviceresponse';
 
@@ -8,8 +8,11 @@ import { serviceresponse } from '../model/serviceresponse';
   providedIn: 'root'
 })
 export class ApicontrolService {
-  apiUrl="https://localhost:44314"
+  // apiUrl="https://localhost:44314"
+  apiUrl="https://localhost:7299"
 
+  getVidUrl = new EventEmitter<string>();
+  
   constructor(private http: HttpClient) { }
 
   public upload(formData, starttime, endtime): Observable<serviceresponse>{
@@ -27,5 +30,7 @@ export class ApicontrolService {
   public predict(data): Observable<serviceresponse>{
     return this.http.post<serviceresponse>(this.apiUrl+"/predict",data);
   }
+
+  
 
 }
