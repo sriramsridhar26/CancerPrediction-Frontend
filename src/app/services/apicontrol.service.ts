@@ -8,8 +8,8 @@ import { serviceresponse } from '../model/serviceresponse';
   providedIn: 'root'
 })
 export class ApicontrolService {
-  // apiUrl="https://localhost:44314"
-  apiUrl="https://localhost:7299"
+  apiUrl="https://localhost:44314"
+  //apiUrl="https://localhost:7299"
 
   getVidUrl = new EventEmitter<string>();
   
@@ -28,6 +28,7 @@ export class ApicontrolService {
     return this.apiUrl+"/stream?filename="+filename;
   }
   public predict(data): Observable<serviceresponse>{
+    console.log(this.apiUrl+"/predict");
     return this.http.post<serviceresponse>(this.apiUrl+"/predict",data);
   }
 
