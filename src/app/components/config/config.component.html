@@ -10,15 +10,43 @@
     </div>
 </div>
 
-
-
 <h3 class="headPad">Please provide the following details</h3>
-<div class="center defaultPad">
+<div class="container">
+    <form id="form" [formGroup]="configForm" >
+        <div>
+            <div>
+                <label for="floatingRsme">RMSE: </label> 
+                <input id="floatingRsme" class="form-control" formControlName="rsme" type="number" placeholder="Enter RMSE"  />
+                
+            </div>
+            <div>
+                <label for="floatingIniw">Initial Wavelength: </label> 
+                <input id="floatingIniw" class="form-control" formControlName="iniw" type="number"  />
+                
+            </div>
+            <div>
+                <label for="floatingFinalw">Final Wavelength: </label> 
+                <input id="floatingFinalw" class="form-control" formControlName="finalw" type="number"   />
+                
+            </div>
+            
+            <div>
+                <label for="floatingGain">End time: </label>
+                <input id="floatingGain" class="form-control" formControlName="gain" type="number"/>
+                
+            </div>
+            <br>
+        </div>
+
+
+
+
+<!-- <div class="center defaultPad">
     <form>
         <div class="form-group">
           <label for="rsme">RMSE:</label>
           <input type="number" class="form-control" id="rsme"  placeholder="Enter rsme"
-          (change)="onChange($event)">
+          (change)="onChange($event)"
           <label *ngIf="disabled" class="warning">rsme value is invalid. Please enter a value greater than 0</label>
         </div>
         <div class="form-group">
@@ -33,6 +61,10 @@
             <label for="gain">Gain:</label>
             <input type="number" class="form-control" id="gain" [disabled] = disabled placeholder="Enter Gain">
         </div>
+ -->
+
+
+
         <br>
        
         <div id="ConfigButtons">

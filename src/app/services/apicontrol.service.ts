@@ -8,8 +8,8 @@ import { serviceresponse } from '../model/serviceresponse';
   providedIn: 'root'
 })
 export class ApicontrolService {
-  // apiUrl="https://localhost:44314"
-  apiUrl="https://localhost:7299"
+  apiUrl="https://localhost:44314"
+  //apiUrl="https://localhost:7299"
 
   getVidUrl = new EventEmitter<string>();
   

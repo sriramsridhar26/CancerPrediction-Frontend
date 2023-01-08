@@ -33,13 +33,14 @@ export class ConfigComponent implements OnInit {
   
   proceed(): void{
     this.temp = new predictval();
-    console.log(sessionStorage.getItem('raw'));
+    //console.log(sessionStorage.getItem('raw'));
     this.temp.fileName = sessionStorage.getItem('raw').toString();
     this.temp.rsme = this.configForm.get("rsme")?.value;
     this.temp.iniw = this.configForm.get("iniw")?.value;
     this.temp.finalw = this.configForm.get("finalw")?.value;
     this.temp.gain = this.configForm.get("gain")?.value;
-
+    
+    console.log(this.temp);
     this.apiControl.predict(this.temp).subscribe((res=>{
       this.response = res;
       console.log(this.response);
@@ -48,7 +49,7 @@ export class ConfigComponent implements OnInit {
         this.router.navigate(['components/final']);
       }
     }
-    ))
+    ));
     
   }
 
