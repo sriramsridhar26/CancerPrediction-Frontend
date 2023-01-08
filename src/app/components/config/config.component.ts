@@ -32,6 +32,7 @@ export class ConfigComponent implements OnInit {
   }
   
   proceed(): void{
+    this.temp = new predictval();
     console.log(sessionStorage.getItem('raw'));
     this.temp.fileName = sessionStorage.getItem('raw').toString();
     this.temp.rsme = this.configForm.get("rsme")?.value;
