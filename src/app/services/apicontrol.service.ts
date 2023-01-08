@@ -28,6 +28,7 @@ export class ApicontrolService {
     return this.apiUrl+"/stream?filename="+filename;
   }
   public predict(data): Observable<serviceresponse>{
+    console.log(this.apiUrl+"/predict");
     return this.http.post<serviceresponse>(this.apiUrl+"/predict",data);
   }
 

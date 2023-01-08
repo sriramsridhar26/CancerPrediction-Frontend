@@ -6,7 +6,9 @@
     </div>
     <div *ngIf="preview">
         <h4>Processed Video</h4>
-        <app-input-preview></app-input-preview>
+        <div *ngIf="showPreview">
+            <app-input-preview></app-input-preview>
+        </div>      
     </div>
 </div>
 
@@ -31,7 +33,7 @@
             </div>
             
             <div>
-                <label for="floatingGain">End time: </label>
+                <label for="floatingGain">Gain: </label>
                 <input id="floatingGain" class="form-control" formControlName="gain" type="number"/>
                 
             </div>

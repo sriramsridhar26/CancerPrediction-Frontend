@@ -21,7 +21,7 @@ export class InputPreviewComponent implements OnInit {
     this.apicontrol.getVidUrl.subscribe((url:string) => {
       this.vidUrl = url;
       console.log('Hell')
-      console.log(this.vidUrl);
+      // console.log(this.vidUrl);
     });
   }
 
