@@ -7,7 +7,9 @@
     <div *ngIf="preview">
         <h4>Processed Video</h4>
         <div *ngIf="showPreview">
-            <app-input-preview></app-input-preview>
+            <video controls width="500">
+                <source src= {{vidUrlS}} type="video/mp4" >
+            </video>
         </div>      
     </div>
 </div>

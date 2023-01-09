@@ -9,15 +9,12 @@ import { ApicontrolService } from 'src/app/services/apicontrol.service';
 export class FinalComponent implements OnInit {
 
   processlink:string=sessionStorage.getItem("processed");
-  vidUrl: string;
+  vidUrlS: string;
   constructor(private apicontrol: ApicontrolService) { }
 
   ngOnInit(): void {
-    // this.apicontrol.stream(this.processlink).subscribe((url => {
-    //   this.vidUrl = url;
-    //   console.log('Hell')
-    //   console.log(this.vidUrl);
-    // }));
+    this.vidUrlS = this.apicontrol.apiUrl+"/stream?filename="+this.processlink;
+
   }
 
 }
