@@ -31,16 +31,11 @@ export class ConfigComponent implements OnInit {
               private apiControl: ApicontrolService) { }
 
   ngOnInit(): void {
-    // this.vidUrl = this.apiControl.stream(sessionStorage.getItem('raw'));
 
-    // this.apiControl.getVidUrl.subscribe((url:string) => {
-    //   this.vidUrl = url;
-    // });
   }
   
   proceed(): void{
     this.temp = new predictval();
-    //console.log(sessionStorage.getItem('raw'));
     this.temp.fileName = sessionStorage.getItem('raw').toString();
     this.temp.rsme = this.configForm.get("rsme")?.value;
     this.temp.iniw = this.configForm.get("iniw")?.value;
@@ -53,18 +48,8 @@ export class ConfigComponent implements OnInit {
       console.log(this.response);
       if(this.response.success){
         sessionStorage.setItem("processed",this.response.data);
-        console.log('Success');
-        console.log(this.response);
-        if(this.preview){
-          console.log('Enter Preview')
-          this.showPreview = true;
-          //this.apiControl.getVidUrl.emit(this.response.data);
-          this.vidUrlS = this.apiControl.apiUrl+"/stream?filename="+this.response.data;
-        }
-        else{
-          this.router.navigate(['components/final']);
-        }
-        // this.preview = false;       
+        this.vidUrlS = this.apiControl.apiUrl+"/stream?filename="+this.response.data;
+        this.router.navigate(['components/final']);
       }
     }
     ));
@@ -72,7 +57,25 @@ export class ConfigComponent implements OnInit {
   }
   previewVideo(): void{
     this.showPreview = false;
-    this.proceed();
+    this.temp = new predictval();
+    //console.log(sessionStorage.getItem('raw'));
+    this.temp.fileName = sessionStorage.getItem('raw').toString();
+    this.temp.rsme = this.configForm.get("rsme")?.value;
+    this.temp.iniw = this.configForm.get("iniw")?.value;
+    this.temp.finalw = this.configForm.get("finalw")?.value;
+    this.temp.gain = this.configForm.get("gain")?.value;
+    
+    console.log('Entered Preview');
+    this.apiControl.predict(this.temp).subscribe((res=>{
+      this.response = res;
+      if(this.response.success){
+        sessionStorage.setItem("processed",this.response.data);
+          console.log('Enter Preview')
+          this.showPreview = true;
+          this.vidUrlS = this.apiControl.apiUrl+"/stream?filename="+this.response.data;       
+      }
+    }
+    ));
     this.preview = true;
   }
   onChange(event):void{
