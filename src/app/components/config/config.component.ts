@@ -17,7 +17,7 @@ export class ConfigComponent implements OnInit {
   disabled:boolean = false;
   temp: predictval;
   response:serviceresponse;
-  vidUrl: any;
+  vidUrlS: any;
 
   configForm: FormGroup = this.formBuilder.group({
     rsme: new FormControl(null, [Validators.required]),
@@ -31,11 +31,11 @@ export class ConfigComponent implements OnInit {
               private apiControl: ApicontrolService) { }
 
   ngOnInit(): void {
-    this.vidUrl = this.apiControl.stream(sessionStorage.getItem('raw'));
+    // this.vidUrl = this.apiControl.stream(sessionStorage.getItem('raw'));
 
-    this.apiControl.getVidUrl.subscribe((url:string) => {
-      this.vidUrl = url;
-    });
+    // this.apiControl.getVidUrl.subscribe((url:string) => {
+    //   this.vidUrl = url;
+    // });
   }
   
   proceed(): void{
@@ -53,31 +53,28 @@ export class ConfigComponent implements OnInit {
       console.log(this.response);
       if(this.response.success){
         sessionStorage.setItem("processed",this.response.data);
-        console.log('Success')
+        console.log('Success');
+        console.log(this.response);
         if(this.preview){
           console.log('Enter Preview')
           this.showPreview = true;
-          this.apiControl.getVidUrl.emit(sessionStorage.getItem('processed'));
+          //this.apiControl.getVidUrl.emit(this.response.data);
+          this.vidUrlS = this.apiControl.apiUrl+"/stream?filename="+this.response.data;
         }
         else{
-          
           this.router.navigate(['components/final']);
         }
-        // this.preview = false;
-        
-       
+        // this.preview = false;       
       }
     }
     ));
     
   }
-
   previewVideo(): void{
     this.showPreview = false;
     this.proceed();
     this.preview = true;
   }
-
   onChange(event):void{
     this.disabled = event.srcElement.value < 1 ? true : false;
     console.log(event.srcElement.value );
