@@ -14,6 +14,7 @@ import {VgCoreModule} from '@videogular/ngx-videogular/core';
 import {VgControlsModule} from '@videogular/ngx-videogular/controls';
 import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { DropzoneDirective } from './directives/dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
     ConfigComponent,
     WaitforresultComponent,
     FinalComponent,
-    InputPreviewComponent
+    InputPreviewComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,
