@@ -14,6 +14,22 @@ import {VgCoreModule} from '@videogular/ngx-videogular/core';
 import {VgControlsModule} from '@videogular/ngx-videogular/controls';
 import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { DropzoneDirective } from './directives/dropzone.directive';
+
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule} from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
 
 @NgModule({
   declarations: [
@@ -22,17 +38,26 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
     ConfigComponent,
     WaitforresultComponent,
     FinalComponent,
-    InputPreviewComponent
+    InputPreviewComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     HttpClientModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSliderModule,
+    MatInputModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

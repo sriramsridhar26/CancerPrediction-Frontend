@@ -18,6 +18,8 @@ export class ConfigComponent implements OnInit {
   temp: predictval;
   response:serviceresponse;
   vidUrlS: any;
+  previewRaw:boolean = true;
+  showRaw:boolean=true;
 
   configForm: FormGroup = this.formBuilder.group({
     rsme: new FormControl(null, [Validators.required]),
@@ -57,6 +59,8 @@ export class ConfigComponent implements OnInit {
   }
   previewVideo(): void{
     this.showPreview = false;
+    this.previewRaw = false;
+    this.showRaw = false;
     this.temp = new predictval();
     //console.log(sessionStorage.getItem('raw'));
     this.temp.fileName = sessionStorage.getItem('raw').toString();

@@ -1,83 +1,56 @@
-<!-- <div class="videoDiv"> -->
-<div [ngClass]="preview? 'videoDiv': 'defaultPad' ">
-    <div >
-        <h4>Raw Video</h4>
-        <app-input-preview></app-input-preview>
-    </div>
-    <div *ngIf="preview">
-        <h4>Processed Video</h4>
-        <div *ngIf="showPreview">
-            <video controls width="500">
-                <source src= {{vidUrlS}} type="video/mp4" >
-            </video>
-        </div>      
-    </div>
-</div>
-
-<h3 class="headPad">Please provide the following details</h3>
 <div class="container">
-    <form id="form" [formGroup]="configForm" >
-        <div>
+    <div class="row">
+        <div class="col">
+            <div class="box">
+                <div class="boxchild">
+                  <h3>Parameters for processing</h3>
+                  <div> 
+                     <form id="form" [formGroup]="configForm">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>RMS</mat-label>
+                            <input matInput placeholder="7"  required autocomplete="off" formControlName="rsme"/>
+                          </mat-form-field>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Initial Wavelength</mat-label>
+                              <input matInput placeholder="530"  required autocomplete="off" formControlName="iniw"/>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Final Wavelength</mat-label>
+                              <input matInput placeholder="560"  required autocomplete="off" formControlName="finalw"/>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Gain</mat-label>
+                              <input matInput placeholder="13"  required autocomplete="off" formControlName="gain"/>
+                            </mat-form-field>
+                            <button mat-raised-button (click)="previewVideo()">Preview</button>
+                            &nbsp; &nbsp; &nbsp; &nbsp;
+                            <button mat-raised-button (click)="proceed()">Proceed</button>
+              
+                          </form>
+                  </div>
+               </div>
+              </div> 
+        </div>
+        <div class="col viddiv">
+
             <div>
-                <label for="floatingRsme">RMSE: </label> 
-                <input id="floatingRsme" class="form-control" formControlName="rsme" type="number" placeholder="Enter RMSE"  />
-                
+                <div *ngIf="previewRaw">
+                    <h2>Raw Video</h2>
+                    <div *ngIf="showRaw">
+                        <app-input-preview></app-input-preview>
+                    </div>
+                </div>
+                <div *ngIf="preview">
+                    <h2>Processed Video</h2>
+                    <div *ngIf="showPreview">
+                        <video controls width="500" height="300">
+                            <source src= {{vidUrlS}} type="video/mp4" >
+                        </video>
+                    </div>      
+                </div>
             </div>
-            <div>
-                <label for="floatingIniw">Initial Wavelength: </label> 
-                <input id="floatingIniw" class="form-control" formControlName="iniw" type="number"  />
-                
-            </div>
-            <div>
-                <label for="floatingFinalw">Final Wavelength: </label> 
-                <input id="floatingFinalw" class="form-control" formControlName="finalw" type="number"   />
-                
-            </div>
-            
-            <div>
-                <label for="floatingGain">Gain: </label>
-                <input id="floatingGain" class="form-control" formControlName="gain" type="number"/>
-                
-            </div>
-            <br>
         </div>
-
-
-
-
-<!-- <div class="center defaultPad">
-    <form>
-        <div class="form-group">
-          <label for="rsme">RMSE:</label>
-          <input type="number" class="form-control" id="rsme"  placeholder="Enter rsme"
-          (change)="onChange($event)"
-          <label *ngIf="disabled" class="warning">rsme value is invalid. Please enter a value greater than 0</label>
-        </div>
-        <div class="form-group">
-            <label for="iniw">Initial Wavelength:</label>
-            <input type="number" class="form-control" id="iniw" [disabled] = disabled placeholder="Enter Initial Wavelength">
-        </div>
-        <div class="form-group">
-            <label for="finalw">Final Wavelength:</label>
-            <input type="number" class="form-control" id="finalw" [disabled] = disabled placeholder="Enter Final Wavelength">
-        </div>
-        <div class="form-group">
-            <label for="gain">Gain:</label>
-            <input type="number" class="form-control" id="gain" [disabled] = disabled placeholder="Enter Gain">
-        </div>
- -->
-
-
-
-        <br>
-       
-        <div id="ConfigButtons">
-           <button class="btn btn-secondary" [disabled] = disabled type="button" (click)="previewVideo()">
-           Preview 
-           </button>
-            <button class="btn btn-primary" [disabled] = disabled type="button" (click)="proceed()">Submit</button>
-            
-        </div>
-        
-    </form>
+    </div>
 </div>
+
+

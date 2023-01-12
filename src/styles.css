@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.logo { 
+    float:left;
+    margin-right: 5%;
+}
+.logo img{ width: 200px; margin-top: 20px; margin-left: 5%;
+animation: logoimglag 0.7s forwards;
+-ms-transform: scale(.7,.7);
+  -webkit-transform: scale(.7,.7);
+  transform: scale(.7,.7);
+}
+.is-hidden > .logo img{ width:150px;margin: 20px;
+	animation: logoimg 0.7s forwards;
+-ms-transform: scale(1,1);
+  -webkit-transform: scale(1,1);
+  transform: scale(1,1);
+}
+@keyframes logoimg {
+  100% {
+	-ms-transform: scale(.7,.7);
+	-webkit-transform: scale(.7,.7);
+	transform: scale(.7,.7);
+  }
+}
+@keyframes logoimglag {
+  100% {
+	-ms-transform: scale(1,1);
+	-webkit-transform: scale(1,1);
+	transform: scale(1,1);
+  }
+}
+.modnavbar{
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: larger;
+    margin-left: auto;
+    margin-right: 10%;
+}
+.lisitem>ul>li>a:hover{
+    color: #7248bd;
+    text-decoration-line: underline ;
+}
+.lisitem ul li{
+  padding-left: 24px;
+  padding-right: 24px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
