@@ -162,7 +162,7 @@
     }
   }
 
-  input,
+input,
 span,
 label,
 textarea {
@@ -272,7 +272,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background: #EEE;
+  background: #7248bd;
 }
 
 input[type="submit"]:active {

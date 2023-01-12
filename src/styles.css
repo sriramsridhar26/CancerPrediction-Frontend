@@ -41,3 +41,9 @@ animation: logoimglag 0.7s forwards;
     color: #7248bd;
     text-decoration-line: underline ;
 }
+.lisitem ul li{
+  padding-left: 24px;
+  padding-right: 24px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -6,18 +6,29 @@
     </p>
     
 </div> -->
-<h2>Thank you for using!</h2>
+<h2 style="text-align: center;">Thank you for using our Website!</h2>
 
-<div>
-    <video controls width="500">
-        <source src= {{vidUrlS}} type="video/mp4" >
-    </video>
-    <button class="btn">
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <video controls width="500" height="300">
+                <source src= {{vidUrlS}} type="video/mp4"  >
+            </video>
+        </div>
+        <div class="row downbox">
+            <a href={{vidUrlS}} class='btn'>Download</a>
+
+        </div>
+
+    </div>
+    
+
+     <!-- <button class="btn">
         <i class="fa fa-download"></i> 
         <a href={{vidUrlS}}></a>
         Download
     </button>
-    <p>{{processlink}}</p>
+    <p>{{processlink}}</p> -->
 </div>
 
 <!-- <video controls width="500">

@@ -5,9 +5,9 @@
     position:relative;
   }
 
-.center>form>div>input{
+/* .center>form>div>input{
   width: 60%;
-}
+} */
 /* 
   #ConfigButtons{
     width: 100%;
@@ -46,4 +46,35 @@
   .warning{
     color: red;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .box{
+    margin: auto;
+    margin-top: 10%;
+    margin-left: 0%;
+    width: 60%;
+    padding: 10px;
+    position:relative;
+    text-align: center;
+    height: 400px;
+    width: 400px;
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  .boxchild{
+    margin: auto;
+  }
+  .form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .viddiv{
+    margin: auto;
+    margin-top: 5%;
+    margin-left: 0%;
   }
